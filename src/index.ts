@@ -73,7 +73,7 @@ export default {
 				const { object } = await generateObject({
 					model: workshopLlm.chatModel('deli-4'),
 					schema: productSchema,
-					prompt: `Extract the product information from this description:\n\n${payload.description}`,
+					prompt: `Extract the product information from this description. The product name must include the full name exactly as written, including the product type (e.g. "chair", "tennis racket", "lamp").\n\n${payload.description}`,
 				});
 
 				return Response.json(object);
